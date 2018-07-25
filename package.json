@@ -1,0 +1,39 @@
+{
+  "name": "service-listener",
+  "version": "0.0.1",
+  "description": "Listens for MARKET Protocol related blockchain events and stores that data for faster read access.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node lib/app.js",
+    "test": "jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MARKETProtocol/service-listener.git"
+  },
+  "engines": {
+    "node": "^8.11.2"
+  },
+  "keywords": [
+    "MARKET Protocol",
+    "ethereum",
+    "blockchain",
+    "trading",
+    "derivatives",
+    "decentralized",
+    "decentralized exchange",
+    "exchange"
+  ],
+  "author": "Dan Matthews <dmvt@pm.me>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MARKETProtocol/service-listener/issues"
+  },
+  "homepage": "https://github.com/MARKETProtocol/service-listener#readme",
+  "devDependencies": {
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "web3": "0.20.6"
+  }
+}
