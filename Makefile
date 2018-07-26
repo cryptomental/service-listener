@@ -29,3 +29,7 @@ install_deps_python2.7:
 # open truffle console with a local development blockchain
 start_console:
 		truffle develop
+
+# start ethereum bridge
+start_bridge:
+		cd $(EB_PATH) ; node bridge -H localhost:9545 -a 9 --dev
