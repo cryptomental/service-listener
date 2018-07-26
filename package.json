@@ -31,9 +31,11 @@
   },
   "homepage": "https://github.com/MARKETProtocol/service-listener#readme",
   "devDependencies": {
-    "jest": "^23.4.1"
+    "jest": "^23.4.1",
+    "truffle": "4.1.13"
   },
   "dependencies": {
+    "@marketprotocol/marketjs": "git+https://git@github.com/MARKETProtocol/MARKET.js.git",
     "web3": "0.20.6"
   }
 }
