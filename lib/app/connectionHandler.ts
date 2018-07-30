@@ -1,19 +1,23 @@
-const _ = require('lodash')
-const ABI = require('../utils/abi')
-const Logger = require('../utils/logger')
-const Web3 = require('web3')
+import { Provider } from '@0xproject/types';
+import Logger from '../utils/logger'
+import Web3 from 'web3'
 
-module.exports = class ConnectionHandler {
-  constructor(providerURI) {
-    this.__internal__ = {
-      providerURI: undefined
-    }
+interface Internal {
+  providerURI: string
+}
+
+class ConnectionHandler {
+  private __internal__: Internal
+  public web3: any
+
+  constructor(providerURI: string) {
+    this.__internal__ = { providerURI: "" }
     this.web3 = new Web3()
     this.provider = providerURI
   }
 
   // Getters
-  get connected() {
+  get connected(): boolean {
     return this.isConnected()
   }
 
@@ -30,20 +34,19 @@ module.exports = class ConnectionHandler {
     })
   }
 
-  get provider() {
+  get currentProvider(): Provider {
     return this.web3.currentProvider
   }
 
   // Setters
-  set provider(providerURI) {
+  set provider(providerURI: string) {
     this.__internal__.providerURI = providerURI
     this.setWeb3Provider()
-    return this.isConnected()
   }
 
   // Instance Methods
 
-  isConnected() {
+  public isConnected(): boolean {
     try {
       if(this.web3.isConnected()) {
         Logger.log(`Connected to ${this.__internal__.providerURI}`)
@@ -58,7 +61,9 @@ module.exports = class ConnectionHandler {
     }
   }
 
-  setWeb3Provider() {
+  private setWeb3Provider(): void {
     this.web3.setProvider(new this.web3.providers.HttpProvider(this.__internal__.providerURI))
   }
 }
+
+export default ConnectionHandler
