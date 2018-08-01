@@ -82,6 +82,9 @@ Run the truffle migrations
 truffle(develop)> migrate --reset
 ```
 
+*NOTE: You need to do this step even if you're going to use the rinkeby network.*
+
+
 Install all of the required packages
 ```
 npm install
