@@ -156,7 +156,7 @@ class MarketInterface {
   public subscribeToEvents(registryName: string): void {
     let registry = this.marketjs[registryName]
     if(registry && registry.rawWeb3Contract) {
-      registry.rawWeb3Contract.allEvents(this.handleEvent)
+      registry.rawWeb3Contract.allEvents().watch(this.handleEvent)
       Logger.log(`Subscribed to all events for ${registryName}`)
     }
   }
