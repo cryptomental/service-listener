@@ -6,5 +6,5 @@ export default (contractName: string, networkId: string) => {
   let base = networkId === NET.TRUFFLE_ID ? "truffle" : "live"
   let abi = get(ABI, [base, contractName])
 
-  return get(abi, ['networks', networkId], NULL_ADDRESS)
+  return get(abi, ['networks', networkId, 'address'], NULL_ADDRESS)
 }
